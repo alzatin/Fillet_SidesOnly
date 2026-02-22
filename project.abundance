@@ -1,13 +1,125 @@
 {
-    "atomType": "Molecule",
-    "x": 0,
-    "y": 0,
-    "uniqueID": "id-94",
-    "name": "Fillet_SidesOnly",
-    "topLevel": true,
-    "allAtoms": [],
-    "allConnectors": [],
-    "unitsKey": "MM",
-    "fileTypeVersion": 1,
-    "filetypeVersion": 1
+  "atomType": "Molecule",
+  "x": 0,
+  "y": 0,
+  "uniqueID": "id-94",
+  "name": "Fillet_SidesOnly",
+  "ioValues": [
+    {
+      "name": "InputShape",
+      "ioValue": 10,
+      "currentEquation": "10"
+    },
+    {
+      "name": "Fillet",
+      "ioValue": 10
+    }
+  ],
+  "topLevel": true,
+  "allAtoms": [
+    {
+      "atomType": "Output",
+      "x": 0.98,
+      "y": 0.5,
+      "uniqueID": "id-95",
+      "ioValues": [
+        {
+          "name": "number or geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ]
+    },
+    {
+      "atomType": "Code",
+      "x": 0.48956228956228953,
+      "y": 0.48192771084337344,
+      "uniqueID": "id-97",
+      "ioValues": [
+        {
+          "name": "shape",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "fillet",
+          "ioValue": 10,
+          "currentEquation": "1"
+        }
+      ],
+      "codeVersion": 1,
+      "code": "\n// Example Code\nconst Inputs = [\n  { inputName: \"shape\", type: \"geometry\", defaultValue: null },\n  { inputName: \"fillet\", type: \"number\", defaultValue: 1 },\n];\n\nlet importedShape = library[shape]\nlet newPlane = replicad.makePlane()\n\nif (fillet > 0){\n  \nlet filletedCyl = importedShape.geometry[0].fillet(fillet, (e) => e.inDirection([0, 0, 1]));\n return {\n  geometry: [filletedCyl],\n  dimension: \"3D\",\n  tags: [\"createdShape\"],\n  color: '#A3CE5B',\n  plane: newPlane,\n  bom: [],\n}\n}\nelse{\n  return {\n  geometry: [importedShape],\n  dimension: \"3D\",\n  tags: [\"createdShape\"],\n  color: '#A3CE5B',\n  plane: newPlane,\n  bom: [],\n}\n  \n}\n"
+    },
+    {
+      "atomType": "Input",
+      "x": 0.021449999999999997,
+      "y": 0.3403614457831325,
+      "uniqueID": "id-103",
+      "name": "InputShape"
+    },
+    {
+      "atomType": "Rectangle",
+      "x": 0.11582491582491583,
+      "y": 0.6837349397590361,
+      "uniqueID": "id-109",
+      "ioValues": [
+        {
+          "name": "x length",
+          "ioValue": 10,
+          "currentEquation": "10"
+        },
+        {
+          "name": "y length",
+          "ioValue": 10
+        }
+      ]
+    },
+    {
+      "atomType": "Extrude",
+      "x": 0.19797979797979798,
+      "y": 0.7801204819277108,
+      "uniqueID": "id-113",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "height",
+          "ioValue": 10,
+          "currentEquation": "10"
+        }
+      ]
+    },
+    {
+      "atomType": "Input",
+      "x": 0.021449999999999997,
+      "y": 0.4183614457831325,
+      "uniqueID": "id-117",
+      "name": "Fillet"
+    }
+  ],
+  "allConnectors": [
+    {
+      "ap2Name": "number or geometry",
+      "ap1ID": "id-97",
+      "ap2ID": "id-95"
+    },
+    {
+      "ap2Name": "shape",
+      "ap1ID": "id-103",
+      "ap2ID": "id-97"
+    },
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-109",
+      "ap2ID": "id-113"
+    },
+    {
+      "ap2Name": "fillet",
+      "ap1ID": "id-117",
+      "ap2ID": "id-97"
+    }
+  ],
+  "unitsKey": "MM",
+  "fileTypeVersion": 1,
+  "filetypeVersion": 1
 }

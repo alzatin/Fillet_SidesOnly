@@ -7,12 +7,11 @@
   "ioValues": [
     {
       "name": "InputShape",
-      "ioValue": 10,
-      "currentEquation": "10"
+      "ioValue": "__GEOMETRY_INPUT__"
     },
     {
       "name": "Fillet",
-      "ioValue": 10
+      "ioValue": 1
     }
   ],
   "topLevel": true,
@@ -41,8 +40,7 @@
         },
         {
           "name": "fillet",
-          "ioValue": 10,
-          "currentEquation": "1"
+          "ioValue": 1
         }
       ],
       "codeVersion": 1,
@@ -50,10 +48,11 @@
     },
     {
       "atomType": "Input",
-      "x": 0.021449999999999997,
-      "y": 0.3403614457831325,
+      "x": 0.025384615384615384,
+      "y": 0.14759036144578314,
       "uniqueID": "id-103",
-      "name": "InputShape"
+      "name": "InputShape",
+      "type": "geometry"
     },
     {
       "atomType": "Rectangle",
@@ -63,8 +62,7 @@
       "ioValues": [
         {
           "name": "x length",
-          "ioValue": 10,
-          "currentEquation": "10"
+          "ioValue": 10
         },
         {
           "name": "y length",
@@ -84,15 +82,14 @@
         },
         {
           "name": "height",
-          "ioValue": 10,
-          "currentEquation": "10"
+          "ioValue": 10
         }
       ]
     },
     {
       "atomType": "Input",
-      "x": 0.021449999999999997,
-      "y": 0.4183614457831325,
+      "x": 0.025384615384615384,
+      "y": 0.24615384615384617,
       "uniqueID": "id-117",
       "name": "Fillet"
     }
